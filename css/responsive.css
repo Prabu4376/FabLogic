@@ -25,7 +25,7 @@
 		line-height: 50px;
 	}
 	.baner-col-2 {
-		width:80%;
+		width:90%;
 		margin: auto;
 	}
 
@@ -39,7 +39,7 @@
 	}
 
 	.sec-title{
-		padding: 0px 15px;
+		padding: 0px 5px;
 	}
 	.sec-title h2{
 		font-size: 30px;
@@ -173,6 +173,9 @@
 
 	.needs-content h1{
 		font-size: 30px;
+	}
+	.about-para h1{
+		font-size: 40px;
 	}
 
 }
