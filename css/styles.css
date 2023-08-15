@@ -20,6 +20,8 @@
     --linkedin:#3292FF;
     --contact-icon-color: #43baff;
     --breadcrumbs-color: #aeaacb;
+    --border-color: #D1E0E5;
+     --background-color: #F0FAFF;
     --team-card-shadow: 15px 15px 38px 0 rgba(0,0,0,.1);
 }
 
@@ -148,6 +150,18 @@ a#navbarDropdown {
     left:0;
     bottom: 0;
 }
+
+.nav-item:nth-child(3):after{
+    opacity: 0;
+}
+
+.nav-item.active:nth-child(3)::after{
+    opacity: 1;
+    width: 100px !important;
+    left: 50%;
+    transform: translateX(-90%);
+}
+
 .nav-item:hover::after{
     width: 100%;
 }
@@ -186,6 +200,24 @@ ul.dropdown-menu.head-tree{
     opacity: 1;
     transform: translateY(0);
     visibility: visible;
+}
+
+.navbar .has-megamenu{position:static!important;}
+.navbar .megamenu{
+    left: 50%;
+    width: 70%;
+    margin-top: 0;
+    transform: translateX(-50%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s ease;
+    margin-top: 20px;
+    padding: 20px;
+}
+.dropdown:hover .megamenu{
+    opacity: 1;
+    visibility: visible;
+    margin-top: 0;
 }
 
 .qus-call{
@@ -462,15 +494,15 @@ margin-bottom: 0;
 
 .service-card{
     padding: 40px 50px;
-    max-height: 325px;
     margin-bottom: 40px;
     text-align: center;
     position: relative;
     transition: all 0.5s ease;
     overflow: hidden;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
     border: 1px solid #ddd;
     height: 100%;
+    max-height: 420px;
 }
 .services_title{
     text-align: center;
@@ -1355,7 +1387,9 @@ padding-top: 50px;
 .submit-btn i{
     font-size: 14px;
 }
-
+.laal{
+    padding-bottom: 10px;
+}
 .submit-btn:hover{
    color: var(--btn-bg);
     background-color: var(--white);
@@ -1366,17 +1400,73 @@ padding-top: 50px;
     padding: 50px 0px;
 }
 .footer-icon img{
-    max-width: 70%;
+  width: 150px;
 }
 .footer-para-1{
     text-align: right;
     color: #AEAACB;
     margin-bottom: 0;
 }
+.footerup-para {
+    padding-top: 10px;
+    font-family: 'Nunito Sans', sans-serif;
 
+}
+.submit{
+    position: absolute;
+    color: var(--white);
+    top: 0px;
+    right: 0px;
+    border: none;
+     list-style: 45px;
+    text-align: center;
+    display: inline-block;
+    background-color: var(--btn-bg);
+    height: 45px;
+    width: 106px;
+}
 
+.submit {
+    font-size: 14px;
+}
+.email-boxs{
+    width: 100%;
+    padding: 10px 30px 10px 20px;
+    height: 30px;
+    border: none;
+   border: 1px solid rgb(206, 202, 202);
+    color: var(--black);  
+    height: 45px;
+    outline: none;
+}
+.abtn{
+    color: var(--white);
+}
+.footer-icons{
+   padding-left: 20px;
+    font-family: 'Nunito Sans', sans-serif !important;
+    color: var(--para-color);
+   
+}
+.icon-a{
+    color: var(--white);
+}
+.card-footer-links {
+    color: var(--white);
+    font-weight: 600;
+    font-size: 20px;
 
-
+}
+.footer-card{
+    border-bottom:1px solid rgb(206, 202, 202);
+    padding-bottom: 50px;
+}
+.footer-car{
+    padding:50px 0px;
+}
+li.footer-list {
+    margin-top: 10px;
+}
 /*  ============================================= About ===================================== */
 
 
@@ -1542,7 +1632,9 @@ color: var(--white);
 .social-link.icon-4{
     color: #FF9000;
 }
-
+.social-link.icon-5{
+    color:red;
+}
 /*  ============================================= Service ===================================== */
 
 /*----------------- need ------------*/
@@ -1640,7 +1732,13 @@ background-image: linear-gradient(90deg,#00deff 0%,#7141b1 100%);
 
 }
 
-.concard1 input {
+.concard1 .form-label{
+    color: var(--white);
+}
+
+
+
+.concard1 .form-control {
     width: 100%;
 height: 45px;
 padding: 10px;
@@ -1649,7 +1747,24 @@ outline:none;
 border:none;
 box-shadow: none;
 color: var(--white);
+background: rgba(255,255,255,.3);
+}
 
+.contact-submit-btn{
+    display: inline-block;
+    padding: 10px 25px;
+    background-color: var(--white);
+    border: none;
+    border-radius: 3px;
+    color: var(--black);
+    font-weight: 700;
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+}
+
+.concard1 .invalid-feedback{
+    color: var(--white);
 }
 .concard1 textarea{
     width: 100%;
@@ -1659,6 +1774,14 @@ box-shadow: none;
 padding: 10px;
 margin-bottom: 30px;
 color: var(--white);
+}
+
+.concard1 .contact-msgs{
+    height: 100px;
+}
+
+.was-validated .form-control:invalid:focus{
+    box-shadow: none;
 }
 
 .concard1 input::placeholder {
@@ -1722,7 +1845,7 @@ max-width: 100%;
 }
 .project-slider .demo-img{
     margin: 0;
-    height: 300px;
+    height: 400px;
 }
 
 .project-slider .demo-img img{
@@ -1778,4 +1901,148 @@ max-width: 100%;
 
 .portfolio-section{
     padding: 80px 0 !important;
+}
+
+/*============================== careers ==================*/
+.Careers-portfolio {
+    padding: 90px 0px 100px 0px;
+}
+.active-pages{
+    color: var(--para-color);
+    margin-left:15px;
+    line-height: 2;
+}
+.career-card{
+
+    border: 1px solid var(--border-color);
+    border-radius:3%;
+    padding: 40px 35px;
+    margin-bottom: 30px;
+  
+}
+.career-card h4{
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 30px;
+    font-family :"Nunito Sans", sans-serif;
+    font-size :20px;
+     font-weight :700;
+
+}
+.career-card:hover{
+    background-color:var(--background-color);
+   transition: all 0.5 s ease;  
+}
+.career-link li i{
+    color: var(--twitter);
+    font-size: 20px;
+}
+
+/* --------------------------vision & mission -----------------*/
+.corevalue{
+    padding: 60px 0px;
+}
+.vision-image img{
+    width: 100px;
+}
+.cardcore{
+    border: 1px solid var(--border-color);
+    margin: 10px;
+    padding:20px;
+    text-align: center;
+    height: 100%;
+
+}
+.cardcore:hover{
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* ------------------Corporate Web Designing ------------------*/
+.Corporate{
+    padding: 85px 0px 0px 0px;
+    background-color: rgb(238, 241, 255);
+}
+.corporatecard{
+    border: 1px solid var(--border-color);
+    padding:30px 15px ;
+    text-align: center;
+    height: 100%;
+    background-color: var(--white);
+}
+.corporatecard:hover{
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+}
+/*------------------------- Domain-------------- */
+.Domain{
+    padding: 60px 0px;
+}
+.domain-image img{
+    max-width: 100%;
+ 
+}
+.domain-para1{
+    padding: 60px 0px;
+}
+/*--------------------- Custom Web Development */
+.custom{
+    padding:60px 0px ;
+}
+.custom-image img{
+    max-width: 100%;
+    
+}
+/*-------------------- PHP Development */
+.phpdevelopment{
+    padding:60px 0px ; 
+}
+.phpdevelopment-image img{
+    max-width: 100%;
+}
+
+/*-------------- Wordpress Development--------------- */
+.Wordpress{
+    padding:60px 0px ; 
+}
+.Wordpress-image img{
+    max-width: 100%;
+}
+/*-------------------- Portal Development: ---------------- */
+.Portal{
+    padding: 60px 0px;
+}
+.Portal-image img{
+    max-width: 100%;
+}
+/* ---------------Logo Design------------- */
+.logodesign{
+    padding: 60px 0px;
+}
+.logo-image img{
+    max-width: 100%;
+}
+/*--------------- Brochure Design-------------- */
+.Brochure{
+    padding: 60px 0px;
+}
+.brochure-image img{
+    max-width: 100%;
+}
+/*----------------- Web Application Development----------------- */
+
+.webapplication{
+    padding: 60px 0px ;
+    background-color: rgb(238, 241, 255);
+}
+.webapplication-card{
+    border: 1px solid var(--border-color);
+    padding:30px 15px ;
+    text-align: center;
+    height: 100%;
+    background-color: var(--white);
+}
+.webapplication-card{
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+.form-control:focus, .btn-primary:focus{
+    box-shadow: none;
 }

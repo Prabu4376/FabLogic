@@ -178,6 +178,24 @@
 		font-size: 40px;
 	}
 
+	.navbar .megamenu{
+		width: 100%;
+		transform: translateX(0);
+	}
+
+	.navbar-collapse{
+		max-height: 450px;
+		overflow-y: scroll;
+	}
+
+	.navbar .has-megamenu{
+		position: relative !important;
+	}
+
+	.nav-item.active:nth-child(3)::after {
+		left: 0;
+		transform: translateX(0%);
+	}
 }
 
 
@@ -237,7 +255,35 @@
 	.projects-details h5{
 		font-size: 18px;
 	}
+.footers-list{
+	margin-top: 30px;
+}
+.navbar .megamenu{
+	width: 100%;
+	transform: translateX(0);
+}
 
+.navbar-collapse{
+	max-height: 500px;
+	overflow-y: scroll;
+}
+
+.qus-call{
+	justify-content: flex-start;
+}
+
+.qus-call .reg-btn{
+	margin-left: 0;
+}
+
+.navbar .has-megamenu{
+	position: relative !important;
+}
+
+.nav-item.active:nth-child(3)::after {
+	left: 0;
+	transform: translateX(0%);
+}
 }
 @media (min-width:992px) and (max-width:1300px){
 	.qus-call-icon, .qus-call-num{
@@ -270,6 +316,10 @@
 	.inner-title{
 		margin-bottom: 0;
 		text-align: left !important;
+	}
+
+	.navbar .megamenu{
+		width: 95%;
 	}
 
 

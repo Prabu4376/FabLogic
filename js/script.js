@@ -37,6 +37,50 @@ $({ countNum: $this.text()}).animate({
 
 });
 
+// Form Validation
+document.addEventListener("DOMContentLoaded", function(){
+    /////// Prevent closing from click inside dropdown
+    document.querySelectorAll('.dropdown-menu').forEach(function(element){
+        element.addEventListener('click', function (e) {
+            e.stopPropagation();
+        });
+    })
+}); 
+
+// Number Validation
+$('input[name="mobile"]').keypress(function(event){
+    if (event.keyCode == 46 || event.keyCode == 8){
+        //do nothing
+    }
+    else 
+    {
+        if (event.keyCode < 48 || event.keyCode > 57 ){
+            event.preventDefault();	
+        }	
+    }
+}
+);
+
+(function () {
+    'use strict'
+  
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.querySelectorAll('.needs-validation')
+  
+    // Loop over them and prevent submission
+    Array.prototype.slice.call(forms)
+      .forEach(function (form) {
+        form.addEventListener('submit', function (event) {
+          if (!form.checkValidity()) {
+            event.preventDefault()
+            event.stopPropagation()
+          }
+  
+          form.classList.add('was-validated')
+        }, false)
+      })
+  })()
+
 var owl = $("#owl-carousal-1");
 owl.owlCarousel({
     loop: true,
