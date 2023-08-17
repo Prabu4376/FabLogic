@@ -824,14 +824,14 @@
                 <form class="row g-3 needs-validation" novalidate>
                     <div class="col-lg-6 col-12 col-md-6">
                       <label for="validationCustom01" class="form-label">Name *</label>
-                      <input type="text" class="form-control" minlength="5" id="validationCustom01" required>
+                      <input type="text" class="form-control" minlength="5" id="name" required>
                       <div class="invalid-feedback">
                         Please Enter Your Name...!
                       </div>
                     </div>
                     <div class="col-lg-6 col-12 col-md-6">
                         <label for="validationCustom01" class="form-label">Email *</label>
-                        <input type="email" class="form-control" id="validationCustom01" required>
+                        <input type="email" class="form-control" id="email" required>
                         <div class="invalid-feedback">
                             Please Enter Your Email...!
                         </div>
@@ -845,21 +845,24 @@
                     </div>
                     <div class="col-lg-6 col-12 col-md-6">
                         <label for="validationCustom01" class="form-label">City *</label>
-                        <input type="text" class="form-control" id="validationCustom01" required>
+                        <input type="text" class="form-control" id="city" required>
                         <div class="invalid-feedback">
                             Please Enter Your City...!
                         </div>
                     </div>
                     <div class="col-lg-12 col-12 col-md-12">
                         <label for="validationTextarea" class="form-label">Message *</label>
-                        <textarea class="form-control" id="validationTextarea" placeholder="Required example textarea" required></textarea>
+                        <textarea class="form-control" id="message" placeholder="Required example textarea" required></textarea>
                         <div class="invalid-feedback">
                             Please Enter Your Message...!
                         </div>
 
                     </div>
                     <div class="col-12">
-                        <button class="btn btn-primary" type="submit">Submit form</button>
+                        <button class="btn btn-primary" type="submit" onclick="sendMail()">Submit form</button>
+                    </div>
+                    <div class="col-12">
+                        <div id="emailSendResult"></div>
                     </div>
                 </form>
             </div>
@@ -927,5 +930,29 @@
         <script src="js/bootstrap.bundle.min.js"></script>
         <script src="js/owl-carouse.js"></script>
         <script src="js/script.js"></script>
+
+        <script>
+            function sendMail(){
+                var getname = jQuery('#name').val();
+                var getemail = jQuery('#email').val();
+                var getMobile = jQuery('#mobilenumber').val();
+                var getCity = jQuery('#city').val();
+                var getMessage = jQuery('#message').val();
+                if(getname != '' && getemail != '' && getMobile != ''&& getCity != ''&& getMessage != ''){
+                jQuery('#emailSendResult').html('Mail Sending...');
+                $.ajax({
+                url:'form.php',
+                data:{ name:getname, email:getemail, mobile:getMobile, city:getCity, message:getMessage},
+                method: 'POST',
+                success: function(data){
+                    jQuery('#emailSendResult').html(data);
+                }
+                });
+                }else{
+                    // jQuery('#emailSendResult').html('Please Enter All Required Fields.');
+                    console.log("Error")
+                }
+            }
+        </script>
     </body>
 </html>
